@@ -1,0 +1,18 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  background-color: #333;
+  color: #fff;
+  padding: 16px;
+  width: 100%;
+  min-height: 100vh; 
+  
+}
+.sidebar-item {
+  padding: 8px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #555;
+  }
+}

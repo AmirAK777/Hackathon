@@ -1,0 +1,9 @@
+<div class="mails">
+    <div class="mail" *ngFor="let mail of mails">
+      <div class="mail-details" routerLink="/detail/{{mail.id}}">
+        <h6>{{ mail.objet }}</h6>
+        <h6>De: {{ mail.expediteur }}</h6>
+      </div>
+    </div>
+  </div>
+  
