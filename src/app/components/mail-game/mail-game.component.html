@@ -1,9 +1,20 @@
-<div class="mails">
-    <div class="mail" *ngFor="let mail of mails">
-      <div class="mail-details" routerLink="/detail/{{mail.id}}">
-        <h6>{{ mail.objet }}</h6>
-        <h6>De: {{ mail.expediteur }}</h6>
+<ul class="messages">
+  <li class="message" *ngFor="let mail of mails">
+    <div class="mail-details" routerLink="/detail/{{mail.id}}">
+      <div class="actions">
+        <span class="action"><i class="fa fa-square-o"></i></span>
+        <span class="action"><i class="fa fa-star-o"></i></span>
+      </div>
+      <div class="header">
+        <span class="from">{{ mail.expediteur }}</span>
+        <span class="date">{{ mail.heure }}</span>
+      </div>
+      <div class="title">
+        {{ mail.objet }}.
+      </div>
+      <div class="description">
+        {{ mail.contenu }}
       </div>
     </div>
-  </div>
-  
+  </li>
+</ul>
