@@ -18,17 +18,19 @@
     <blockquote>
       {{ mail.contenu2 }}
     </blockquote>
+    <li><a href="{{ mail.lienDuSite }}">{{ mail.lienDuSite }}</a>
   </div>
   <div class="attachments">
-    <div class="attachment">
-      <span class="badge badge-danger">{{ mail.typePieceJointe }}</span> <b>{{ mail.pieceJointe }}</b> <i> '': ({{
-        mail.taillePieceJointe }})</i>
+    <div *ngIf="mail.pieceJointe" class="attachment">
+      <span class="badge badge-danger">{{ mail.typePieceJointe }}</span>
+      <b>{{ mail.pieceJointe }}</b>&nbsp;<i>({{ mail.taillePieceJointe }})</i>
       <span class="menu">
         <a href="#" class="fa fa-search"></a>
         <a href="#" class="fa fa-share"></a>
         <a href="#" class="fa fa-cloud-download"></a>
       </span>
     </div>
+    
   </div>
   <div class="scams-game">
     <ng-container *ngIf="!mail.statusReponse && !buttonClicked">
@@ -38,9 +40,11 @@
       <button (click)="checkScam(false); buttonClicked = true;" class="btn btn-danger">False</button>
     </ng-container>
 
-    <div *ngIf="answerMessage">
+    <div *ngIf="answerMessage" [ngClass]="messageClass">
       <p>{{ answerMessage }}</p>
+      <p>{{ mail.explication }}</p>
     </div>
+
   </div>
 
 

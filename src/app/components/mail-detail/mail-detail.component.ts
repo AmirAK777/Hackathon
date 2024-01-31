@@ -11,6 +11,7 @@ import { MailService } from 'src/app/services/mail.service';
 })
 export class MailDetailComponent {
 
+  messageClass: string = '';
   mail: Email | undefined;
   answerMessage: string | undefined;
   buttonClicked = false;
@@ -36,13 +37,15 @@ export class MailDetailComponent {
   checkScam(isScam: boolean): void {
     if (this.mail) {
       if (this.mail.scams === isScam) {
-        this.answerMessage = 'Gagné ! ';
-        this.gagnerPoints(10)
+        this.answerMessage = 'Gagné !';
+        this.gagnerPoints(10);
+        this.messageClass = 'alert alert-success';  // Ajoutez une classe Bootstrap pour le succès
       } else {
         this.answerMessage = 'Perdu !';
-        this.perduPoints(10)
+        this.perduPoints(10);
+        this.messageClass = 'alert alert-danger';  // Ajoutez une classe Bootstrap pour l'échec
       }
-      this.mailService.markResponseAsRead(this.mail.id)
+      this.mailService.markResponseAsRead(this.mail.id);
     }
   }
 
