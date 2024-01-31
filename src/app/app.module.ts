@@ -7,13 +7,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { MailGameComponent } from './components/mail-game/mail-game.component';
 import { MailDetailComponent } from './components/mail-detail/mail-detail.component';
+import { MinibarComponent } from './components/minibar/minibar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     MailGameComponent,
-    MailDetailComponent
+    MailDetailComponent,
+    MinibarComponent
   ],
   imports: [
     BrowserModule,

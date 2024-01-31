@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LocalStorageService } from 'src/app/services/local-storage.service';
 
 @Component({
   selector: 'app-navbar',
@@ -8,6 +9,10 @@ import { Component, OnInit } from '@angular/core';
 export class NavbarComponent implements OnInit {
   menuItems: any[] = [];
 
+  constructor(private localStorage: LocalStorageService) {
+
+  }
+
   ngOnInit(): void {
     // Example menu items
     this.menuItems = [
@@ -16,5 +21,9 @@ export class NavbarComponent implements OnInit {
       { url: '/services', icon: 'services' },
       { url: '/contact', icon: 'contact' },
     ];
+  }
+
+  effacerScore(): void {
+    this.localStorage.clearLocalStorage();
   }
 }

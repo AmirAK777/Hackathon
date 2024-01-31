@@ -2,7 +2,12 @@
   <li class="message" *ngFor="let mail of mails">
     <div class="mail-details" routerLink="/detail/{{mail.id}}">
       <div class="actions">
-        <span class="action"><i class="fa fa-square-o"></i></span>
+        <span class="action" *ngIf="mail.statusReponse" style="color: Tomato">
+          <i class="fa fa-check-square"></i>
+        </span>
+        <span class="action" *ngIf="!mail.statusReponse">
+          <i class="fa fa-square-o"></i>
+        </span>
         <span class="action"><i class="fa fa-star-o"></i></span>
       </div>
       <div class="header">
@@ -13,7 +18,7 @@
         {{ mail.objet }}.
       </div>
       <div class="description">
-        {{ mail.contenu }}
+        {{ mail.contenu1 }}
       </div>
     </div>
   </li>

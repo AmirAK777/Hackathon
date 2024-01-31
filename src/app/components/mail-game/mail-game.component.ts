@@ -14,7 +14,13 @@ export class MailGameComponent implements OnInit {
   constructor(private mailService: MailService) { }
 
   ngOnInit(): void {
-    this.mails = this.mailService.getAllMails();
-    console.log(this.mails)
+    const fetchedMails = this.mailService.getMails();
+
+    if (fetchedMails !== null) {
+      this.mails = fetchedMails;
+      console.log(this.mails);
+    } else {
+      console.error("Failed to fetch emails from the service.");
+    }
   }
 }
